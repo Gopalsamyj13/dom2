@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1>Check your BMI</h1>
+        <h3>Enter your weigth and heigth below to check your BMI results</h3>
+        <h3>Put your weigth in here(KG)</h3>
+        <input type="text" id="input1">
+        <h3>And your heigth in here(CM)</h3>
+        <input type="text" id="input2">
+        <br>
+        <button onclick="Calculate()">Calculate BMI</button>
+        <h2 id="op"></h2>
+    </div>
+</body>
+</html>
+<script>
+    function Calculate(){
+        let weigth=document.getElementById("input1").value;
+        let heigth=document.getElementById("input2").value;
+        let heigthSquare=Number(heigth**2);
+        let total=Number(weigth)/Number(heigthSquare)
+        total= Math.round(total*10)/10;
+        let name=""
+        if(total<=18.4){
+            name="UnderWeigth";
+        }
+        else if(total>=18.5 && total <=24.9){
+            name="Normal Weigth";
+        }
+        else if(total>=25 && total <=29.9) {
+            name="Over Weigth";
+        }
+        else{
+            name="Obese";
+        }
+        document.getElementById("op").innerText="Your BMI is "+ total+" Which means You are "+name;
+    }
+    
+    
+</script>
